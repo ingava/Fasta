@@ -1,0 +1,3 @@
+rootProject.name = 'fasta'
+
+include ':app'
