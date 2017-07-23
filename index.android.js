@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Text } from 'react-native';
-import { Header, Card, CardSection, Button } from './src/components/common';
+import { Header, Card, CardSection, Button, InstructionText } from './src/components/common';
 
 export default class fasta extends Component {
     render() {
@@ -8,9 +8,7 @@ export default class fasta extends Component {
 
             <View style={{ flex: 1 }}>
                 <Header>Fasta</Header>
-                <View style={{ justifyContent: 'center', alignItems: 'center', height: 60 }}>
-                    <Text style={{ fontSize: 16 }}>Choose your fasting interval</Text>
-                </View>
+                <InstructionText>Choose your fasting interval</InstructionText>
                 <Card>
                     <CardSection>
                         <Button onPress={() => {}}>16 - 8</Button>
