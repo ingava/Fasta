@@ -1,11 +1,14 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
-import FastingRegime from './components/FastingRegime';
+import FastingRegime from './screens/FastingRegime';
+import FastingStart from './screens/FastingStart';
 
 const RouterComponent = () => {
+
     return (
-        <Router>
+        <Router sceneStyle={{ paddingTop: 65 }}>
             <Scene key="fastingRegime" component={FastingRegime} title="Fasta" initial />
+            <Scene key="fastingStart" component={FastingStart} title="Fasta" />
         </Router>
     )
 }
