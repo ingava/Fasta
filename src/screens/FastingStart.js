@@ -1,30 +1,30 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { View, Picker } from 'react-native'
-import { InstructionText, Card } from '../components/common'
+import { InstructionText, Card, Button, CardSection } from '../components/common'
+import { selectFastingStart } from '../actions/FastingStart';
 
 class FastingStart extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { optionSelected: false };
+        this.state = { selectedOption: null, };
+
         this.handleOptionSelect = this.handleOptionSelect.bind(this);
     }
 
-    handleOptionSelect () {
-        this.setState({ optionSelected: true })
+    handleOptionSelect (itemValue) {
+        this.props.selectFastingStart(itemValue);
+        this.setState({ selectedOption: itemValue })
     }
 
     render () {
+
         return (
             <View>
                 <InstructionText>I will stop eating at:</InstructionText>
                 <Card>
-                    <Picker
-                        onValueChange={this.handleOptionSelect}
-                    >
-                        {!this.state.optionSelected &&
-                            <Picker.Item value="" label="Choose time" />
-                        }
+                    <Picker onValueChange={this.handleOptionSelect} selectedValue={this.state.selectedOption}>
                         <Picker.Item value="16.00" label="16.00" />
                         <Picker.Item value="17.00" label="17.00" />
                         <Picker.Item value="18.00" label="18.00" />
@@ -34,9 +34,15 @@ class FastingStart extends Component {
                         <Picker.Item value="22.00" label="22.00" />
                     </Picker>
                 </Card>
+                <Card>
+                    <InstructionText>OR</InstructionText>
+                    <CardSection>
+                        <Button>NOW</Button>
+                    </CardSection>
+                </Card>
             </View>
         )
     }
 }
 
-export default FastingStart
+export default connect(null, { selectFastingStart })(FastingStart)
