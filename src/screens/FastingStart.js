@@ -1,21 +1,21 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { View, Picker } from 'react-native'
-import { InstructionText, Card, Button, CardSection } from '../components/common'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { View, Picker } from 'react-native';
+import { InstructionText, Card, Button, CardSection } from '../components/common';
 import { selectFastingStart } from '../actions/FastingStart';
 
 class FastingStart extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { selectedOption: null, };
+        this.state = { selectedOption: null };
 
         this.handleOptionSelect = this.handleOptionSelect.bind(this);
     }
 
     handleOptionSelect (itemValue) {
         this.props.selectFastingStart(itemValue);
-        this.setState({ selectedOption: itemValue })
+        this.setState({ selectedOption: itemValue });
     }
 
     render () {

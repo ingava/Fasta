@@ -14,9 +14,11 @@ class FastingRegime extends Component {
 
     handleButtonPress(event) {
         this.props.selectRegime(event.target.value);
-        Actions.fastingStart()
+        Actions.fastingStart();
     };
+
     render() {
+
         return (
             <View>
                 <InstructionText>Choose your fasting interval</InstructionText>

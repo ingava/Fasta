@@ -11,6 +11,6 @@ const RouterComponent = () => {
             <Scene key="fastingStart" component={FastingStart} title="Fasta" />
         </Router>
     )
-}
+};
 
 export default RouterComponent
