@@ -1,6 +1,5 @@
 import { REGIME_SELECTED, FASTING_START_SELECTED } from '../types';
 
-
 const initialState = {
     regime: null,
     fastingStart: null,
