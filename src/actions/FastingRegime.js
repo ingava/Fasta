@@ -1,4 +1,4 @@
-import { REGIME_SELECTED } from '../types';
+import { REGIME_SELECTED } from '../constants/types';
 
 export const selectRegime = (value) => {
     return {

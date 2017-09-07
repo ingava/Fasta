@@ -1,4 +1,4 @@
-import { REGIME_SELECTED, FASTING_START_SELECTED } from '../types';
+import { REGIME_SELECTED, FASTING_START_SELECTED } from '../constants/types';
 
 const initialState = {
     regime: null,

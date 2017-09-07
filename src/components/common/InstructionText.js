@@ -19,8 +19,8 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         height: 60,
-        elevation: 4,
         position: 'relative',
+        backgroundColor: 'transparent',
     }
 };
 
