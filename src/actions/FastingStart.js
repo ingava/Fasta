@@ -1,4 +1,4 @@
-import { FASTING_START_SELECTED } from '../types';
+import { FASTING_START_SELECTED } from '../constants/types';
 
 export const selectFastingStart = (value) => {
     return {
