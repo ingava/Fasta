@@ -24,7 +24,9 @@ class FastingStart extends Component {
 
         return (
             <LinearGradient colors={backgroundGradient} style={styles.linearGradient}>
-                <InstructionText>I will stop eating at:</InstructionText>
+                <View style={{ paddingTop: 50, paddingBottom: 20 }}>
+                    <InstructionText>I will stop eating at:</InstructionText>
+                </View>
                 <View style={styles.pickerContainer} >
                     <Picker onValueChange={this.handleOptionSelect} selectedValue={this.state.selectedOption}>
                         <Picker.Item value="16.00" label="16.00" />
