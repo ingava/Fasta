@@ -19,7 +19,6 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         height: 60,
-        position: 'relative',
         backgroundColor: 'transparent',
     }
 };

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Picker } from 'react-native';
+import { Picker, View } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import backgroundGradient from '../constants/colors';
 import { InstructionText, Card, Button, CardSection } from '../components/common';
 import { selectFastingStart } from '../actions/FastingStart';
 
@@ -21,9 +23,9 @@ class FastingStart extends Component {
     render () {
 
         return (
-            <View>
+            <LinearGradient colors={backgroundGradient} style={styles.linearGradient}>
                 <InstructionText>I will stop eating at:</InstructionText>
-                <Card>
+                <View style={styles.pickerContainer} >
                     <Picker onValueChange={this.handleOptionSelect} selectedValue={this.state.selectedOption}>
                         <Picker.Item value="16.00" label="16.00" />
                         <Picker.Item value="17.00" label="17.00" />
@@ -33,15 +35,29 @@ class FastingStart extends Component {
                         <Picker.Item value="21.00" label="21.00" />
                         <Picker.Item value="22.00" label="22.00" />
                     </Picker>
-                </Card>
+                </View>
                 <Card>
                     <InstructionText>OR</InstructionText>
                     <CardSection>
                         <Button>NOW</Button>
                     </CardSection>
                 </Card>
-            </View>
+            </LinearGradient>
         )
+    }
+}
+
+const styles = {
+    linearGradient: {
+        flex: 1,
+        paddingTop: 60,
+        paddingLeft: 15,
+        paddingRight: 15,
+    },
+    pickerContainer: {
+        borderWidth: 1,
+        borderColor: 'rgba(255, 255, 255, 0.3)',
+        borderRadius: 5,
     }
 }
 
