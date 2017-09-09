@@ -45,6 +45,7 @@ class FastingRegime extends Component {
 const styles = {
     linearGradient: {
         flex: 1,
+        paddingTop: 60,
         paddingLeft: 15,
         paddingRight: 15,
     }

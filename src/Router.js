@@ -8,8 +8,21 @@ const RouterComponent = () => {
 
     return (
         <Router>
-            <Scene key="fastingRegime" component={FastingRegime} navigationBarStyle={styles.navigationContainer} title="Fasta" titleStyle={styles.navigationText} initial />
-            <Scene key="fastingStart" component={FastingStart} title="Fasta" />
+            <Scene
+                key="fastingRegime"
+                component={FastingRegime}
+                navigationBarStyle={styles.navigationContainer}
+                title="Fasta"
+                titleStyle={styles.navigationText}
+                initial
+            />
+            <Scene
+                key="fastingStart"
+                component={FastingStart}
+                navigationBarStyle={styles.navigationContainer}
+                title="Fasta"
+                titleStyle={styles.navigationText}
+            />
         </Router>
     )
 };
