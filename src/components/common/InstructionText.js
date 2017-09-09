@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { instructionText } from '../../constants/colors';
 
 const InstructionText = ({ children }) => {
     const { textStyle, viewStyle } = styles;
@@ -13,7 +14,9 @@ const InstructionText = ({ children }) => {
 
 const styles = {
     textStyle: {
-        fontSize: 18
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: instructionText,
     },
     viewStyle: {
         justifyContent: 'center',

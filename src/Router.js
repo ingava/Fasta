@@ -36,7 +36,8 @@ const styles = {
         fontFamily: 'notoserif',
         color: headerText,
         fontWeight: 'bold',
-        fontSize: 30,
+        fontSize: 28,
+        top: -8,
     }
 };
 

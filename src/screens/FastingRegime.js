@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 import backgroundGradient from '../constants/colors';
@@ -22,7 +23,9 @@ class FastingRegime extends Component {
 
         return (
             <LinearGradient colors={backgroundGradient} style={styles.linearGradient}>
-                <InstructionText>Choose your fasting interval</InstructionText>
+                <View style={{ paddingTop: 50, paddingBottom: 20 }}>
+                    <InstructionText>Choose your fasting interval</InstructionText>
+                </View>
                 <Card>
                     <CardSection>
                         <Button value={14} onPress={this.handleButtonPress}>14 hours</Button>
