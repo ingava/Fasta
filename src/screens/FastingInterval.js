@@ -15,7 +15,6 @@ class FastingInterval extends Component {
     }
 
     handleButtonPress(value) {
-        console.log(value);
         this.props.selectInterval(value);
         Actions.fastingStart();
     };
