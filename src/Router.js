@@ -1,6 +1,6 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
-import FastingRegime from './screens/FastingRegime';
+import FastingInterval from './screens/FastingInterval';
 import FastingStart from './screens/FastingStart';
 import { headerBackground, headerText } from './constants/colors';
 
@@ -9,8 +9,8 @@ const RouterComponent = () => {
     return (
         <Router>
             <Scene
-                key="fastingRegime"
-                component={FastingRegime}
+                key="fastingInterval"
+                component={FastingInterval}
                 navigationBarStyle={styles.navigationContainer}
                 title="Fasta"
                 titleStyle={styles.navigationText}

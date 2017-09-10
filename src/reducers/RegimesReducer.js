@@ -1,16 +1,16 @@
-import { REGIME_SELECTED, FASTING_START_SELECTED } from '../constants/types';
+import { INTERVAL_SELECTED, FASTING_START_SELECTED } from '../constants/types';
 
 const initialState = {
-    regime: null,
+    interval: null,
     fastingStart: null,
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case REGIME_SELECTED:
+        case INTERVAL_SELECTED:
             return {
                 ...state,
-                regime: action.payload,
+                interval: action.payload,
             };
         case FASTING_START_SELECTED:
             return {

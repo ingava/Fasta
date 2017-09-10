@@ -5,17 +5,18 @@ import { Actions } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 import backgroundGradient from '../constants/colors';
 import { InstructionText, Card, CardSection, Button } from '../components/common/index';
-import { selectRegime } from '../actions/FastingRegime';
+import { selectInterval } from '../actions/FastingInterval';
 
-class FastingRegime extends Component {
+class FastingInterval extends Component {
     constructor(props) {
         super(props);
 
         this.handleButtonPress = this.handleButtonPress.bind(this);
     }
 
-    handleButtonPress(event) {
-        this.props.selectRegime(event.target.value);
+    handleButtonPress(value) {
+        console.log(value);
+        this.props.selectInterval(value);
         Actions.fastingStart();
     };
 
@@ -52,6 +53,6 @@ const styles = {
         paddingLeft: 15,
         paddingRight: 15,
     }
-}
+};
 
-export default connect(null, { selectRegime })(FastingRegime)
+export default connect(null, { selectInterval })(FastingInterval)
