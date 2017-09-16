@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 const Header = ({ children }) => {
     const { textStyle, viewStyle } = styles;
@@ -11,7 +11,7 @@ const Header = ({ children }) => {
     );
 };
 
-const styles = {
+const styles = ({
     textStyle: {
         fontSize: 20
     },
@@ -23,6 +23,6 @@ const styles = {
         elevation: 4,
         position: 'relative',
     }
-};
+});
 
 export { Header };

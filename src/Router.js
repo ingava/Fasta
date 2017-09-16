@@ -1,5 +1,6 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
+import { StyleSheet } from 'react-native';
 import FastingInterval from './screens/FastingInterval';
 import FastingStart from './screens/FastingStart';
 import { headerBackground, headerText } from './constants/colors';
@@ -27,7 +28,7 @@ const RouterComponent = () => {
     )
 };
 
-const styles = {
+const styles = StyleSheet.create({
     navigationContainer: {
         backgroundColor: headerBackground,
         borderBottomColor: 'white',
@@ -39,6 +40,6 @@ const styles = {
         fontSize: 28,
         top: -8,
     }
-};
+});
 
 export default RouterComponent

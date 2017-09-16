@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 import backgroundGradient from '../constants/colors';
@@ -45,13 +45,13 @@ class FastingInterval extends Component {
     }
 }
 
-const styles = {
+const styles = StyleSheet.create({
     linearGradient: {
         flex: 1,
         paddingTop: 60,
         paddingLeft: 15,
         paddingRight: 15,
     }
-};
+});
 
 export default connect(null, { selectInterval })(FastingInterval)

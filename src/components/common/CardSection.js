@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 const CardSection = ({ children }) => {
     return (
@@ -9,7 +9,7 @@ const CardSection = ({ children }) => {
     )
 };
 
-const styles = {
+const styles = StyleSheet.create({
     containerStyle: {
         padding: 5,
         backgroundColor: 'transparent',
@@ -17,6 +17,6 @@ const styles = {
         flexDirection: 'row',
         position: 'relative',
     }
-};
+});
 
 export { CardSection };
