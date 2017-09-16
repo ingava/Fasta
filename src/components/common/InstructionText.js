@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { instructionText } from '../../constants/colors';
 
 const InstructionText = ({ children }) => {
@@ -12,7 +12,7 @@ const InstructionText = ({ children }) => {
     );
 };
 
-const styles = {
+const styles = ({
     textStyle: {
         fontSize: 22,
         fontWeight: 'bold',
@@ -24,6 +24,6 @@ const styles = {
         height: 60,
         backgroundColor: 'transparent',
     }
-};
+});
 
 export { InstructionText };

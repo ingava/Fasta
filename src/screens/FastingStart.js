@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Picker, View } from 'react-native';
+import { Picker, View, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import backgroundGradient from '../constants/colors';
 import { InstructionText, Card, Button, CardSection } from '../components/common';
@@ -50,7 +50,7 @@ class FastingStart extends Component {
     }
 }
 
-const styles = {
+const styles = StyleSheet.create({
     linearGradient: {
         flex: 1,
         paddingTop: 60,
@@ -62,6 +62,6 @@ const styles = {
         borderColor: 'rgba(255, 255, 255, 0.3)',
         borderRadius: 5,
     }
-}
+});
 
 export default connect(null, { selectFastingStart })(FastingStart)
