@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 import { Picker, View, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import backgroundGradient from '../constants/colors';
@@ -13,11 +14,16 @@ class FastingStart extends Component {
         this.state = { selectedOption: null };
 
         this.handleOptionSelect = this.handleOptionSelect.bind(this);
+        this.handleNowPress = this.handleNowPress.bind(this);
     }
 
     handleOptionSelect (itemValue) {
         this.props.selectFastingStart(itemValue);
         this.setState({ selectedOption: itemValue });
+    }
+
+    handleNowPress () {
+        Actions.countdown();
     }
 
     render () {
@@ -42,7 +48,7 @@ class FastingStart extends Component {
                 <Card>
                     <InstructionText>OR</InstructionText>
                     <CardSection>
-                        <Button>NOW</Button>
+                        <Button onPress={this.handleNowPress}>NOW</Button>
                     </CardSection>
                 </Card>
             </LinearGradient>

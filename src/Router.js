@@ -3,6 +3,7 @@ import { Scene, Router } from 'react-native-router-flux';
 import { StyleSheet } from 'react-native';
 import FastingInterval from './screens/FastingInterval';
 import FastingStart from './screens/FastingStart';
+import Countdown from './screens/Countdown';
 import { headerBackground, headerText } from './constants/colors';
 
 const RouterComponent = () => {
@@ -20,6 +21,13 @@ const RouterComponent = () => {
             <Scene
                 key="fastingStart"
                 component={FastingStart}
+                navigationBarStyle={styles.navigationContainer}
+                title="Fasta"
+                titleStyle={styles.navigationText}
+            />
+            <Scene
+                key="countdown"
+                component={Countdown}
                 navigationBarStyle={styles.navigationContainer}
                 title="Fasta"
                 titleStyle={styles.navigationText}
