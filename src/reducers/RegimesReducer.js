@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { INTERVAL_SELECTED, FASTING_START_SELECTED } from '../constants/types';
+import {INTERVAL_SELECTED, FASTING_START_SELECTED} from '../constants/types';
 
 const initialState = {
     timeToStopFasting: null,
