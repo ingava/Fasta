@@ -23,6 +23,9 @@ class FastingStart extends Component {
     }
 
     handleNowPress () {
+        const currentTime = new Date();
+        this.setState({ selectedOption: currentTime});
+        this.props.selectFastingStart(currentTime);
         Actions.countdown();
     }
 
@@ -35,7 +38,6 @@ class FastingStart extends Component {
                 </View>
                 <View style={styles.pickerContainer} >
                     <Picker onValueChange={this.handleOptionSelect} selectedValue={this.state.selectedOption}>
-                        <Picker.Item value="now" label="now" />
                         <Picker.Item value="16.00" label="16.00" />
                         <Picker.Item value="17.00" label="17.00" />
                         <Picker.Item value="18.00" label="18.00" />
