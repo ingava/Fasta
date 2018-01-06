@@ -1,9 +1,8 @@
-import moment from 'moment';
-import {INTERVAL_SELECTED, FASTING_START_SELECTED} from '../constants/types';
+import { INTERVAL_SELECTED, FASTING_START_SELECTED } from '../constants/types';
 
 const initialState = {
-    timeToStopFasting: null,
     fastingStart: null,
+    selectedInterval: null,
 };
 
 export default (state = initialState, action) => {
@@ -11,7 +10,7 @@ export default (state = initialState, action) => {
         case INTERVAL_SELECTED:
             return {
                 ...state,
-                timeToStopFasting: moment().add(action.payload, 'hours'),
+                selectedInterval: action.payload,
             };
         case FASTING_START_SELECTED:
             return {
