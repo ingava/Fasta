@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { Actions } from 'react-native-router-flux';
 import { Picker, View, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -8,36 +9,37 @@ import { InstructionText, Card, Button, CardSection } from '../components/common
 import { selectFastingStart } from '../actions/FastingStart';
 
 class FastingStart extends Component {
-    constructor(props) {
-        super(props);
+    state = {
+        selectedOption: null,
+    };
 
-        this.state = { selectedOption: null };
+    handleOptionSelect = (itemValue) => {
+        const { selectFastingStart } = this.props;
+        const date = moment().format('YYYY-MM-DD');
+        const dateTime = moment(`${date} ${itemValue}`, "YYYY-MM-DD HH:mm");
 
-        this.handleOptionSelect = this.handleOptionSelect.bind(this);
-        this.handleNowPress = this.handleNowPress.bind(this);
-    }
-
-    handleOptionSelect (itemValue) {
-        this.props.selectFastingStart(itemValue);
+        selectFastingStart(dateTime);
         this.setState({ selectedOption: itemValue });
-    }
+        Actions.countdown();
+    };
 
-    handleNowPress () {
-        const currentTime = new Date();
+    handleNowPress = () => {
+        const currentTime = moment();
+
         this.setState({ selectedOption: currentTime});
         this.props.selectFastingStart(currentTime);
         Actions.countdown();
-    }
+    };
 
     render () {
-
         return (
             <LinearGradient colors={backgroundGradient} style={styles.linearGradient}>
                 <View style={{ paddingTop: 50, paddingBottom: 20 }}>
                     <InstructionText>I will stop eating at:</InstructionText>
                 </View>
                 <View style={styles.pickerContainer} >
-                    <Picker onValueChange={this.handleOptionSelect} selectedValue={this.state.selectedOption}>
+                    <Picker onValueChange={this.handleOptionSelect}>
+                        <Picker.Item label="Select time" />
                         <Picker.Item value="16.00" label="16.00" />
                         <Picker.Item value="17.00" label="17.00" />
                         <Picker.Item value="18.00" label="18.00" />

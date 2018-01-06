@@ -8,19 +8,14 @@ import { InstructionText, Card, CardSection, Button } from '../components/common
 import { selectInterval } from '../actions/FastingInterval';
 
 class FastingInterval extends Component {
-    constructor(props) {
-        super(props);
+    handleButtonPress = (value) => {
+        const { selectInterval } = this.props;
 
-        this.handleButtonPress = this.handleButtonPress.bind(this);
-    }
-
-    handleButtonPress(value) {
-        this.props.selectInterval(value);
+        selectInterval(value);
         Actions.fastingStart();
     };
 
     render() {
-
         return (
             <LinearGradient colors={backgroundGradient} style={styles.linearGradient}>
                 <View style={{ paddingTop: 50, paddingBottom: 20 }}>

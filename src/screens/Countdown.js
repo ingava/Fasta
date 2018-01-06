@@ -11,33 +11,53 @@ class Countdown extends Component {
     constructor(props) {
         super(props);
 
-        const timeLeft = this.props.timeToStopFasting.diff(moment());
+        const timeToStopFasting = this.timeToStopFasting();
+        const timeToStartFasting = this.timeToStartFasting();
 
         this.state = {
-            timeLeft,
+            timeToStopFasting,
+            timeToStartFasting,
         };
-
-        this.startCountDown = this.startCountDown.bind(this);
     }
 
     componentDidMount () {
-        this.interval = setInterval(this.startCountDown, 1000);
+        this.timer = setInterval(this.startCountDown, 1000);
     }
 
     componentWillUnmount () {
-        clearInterval(this.interval);
+        clearInterval(this.timer);
     }
 
-    startCountDown () {
-        const timeLeft = this.props.timeToStopFasting.diff(moment());
+    startCountDown = () => {
+        const timeToStopFasting = this.timeToStopFasting();
+        const timeToStartFasting = this.timeToStartFasting();
 
-        this.setState({ timeLeft });
+        this.setState({ timeToStopFasting, timeToStartFasting });
     };
 
+    timeToStartFasting () {
+        const { fastingStart } = this.props;
+
+        return fastingStart.diff(moment());
+    }
+
+    timeToStopFasting () {
+        const { fastingStart, selectedInterval } = this.props;
+        const timeToStopFasting = moment(fastingStart).add(selectedInterval, 'hours');
+
+        return timeToStopFasting.diff(moment());
+    }
+
     render () {
-        const hours = moment.duration(this.state.timeLeft).hours();
-        const minutes = moment.duration(this.state.timeLeft).minutes();
-        const seconds = moment.duration(this.state.timeLeft).seconds();
+        const { timeToStartFasting, timeToStopFasting } = this.state;
+        const isFastingAlreadyStarted = timeToStartFasting < 0;
+        const duration = isFastingAlreadyStarted ? timeToStopFasting : timeToStartFasting;
+        const days = moment.duration(duration).days();
+        let hours = moment.duration(duration).hours();
+        const minutes = moment.duration(duration).minutes();
+        const seconds = moment.duration(duration).seconds();
+
+        hours = hours + (days * 24);
 
         function suffix () {
             if (hours > 0) {
@@ -49,17 +69,20 @@ class Countdown extends Component {
             }
         }
 
-
         return (
             <LinearGradient colors={backgroundGradient} style={styles.linearGradient}>
                 <View>
-                    <InstructionText>You can start eating in:</InstructionText>
+                    { isFastingAlreadyStarted
+                        ? <InstructionText>You can start eating in:</InstructionText>
+                        : <InstructionText>You should stop eating in:</InstructionText>
+                    }
+
                     <InstructionText>{hours}:{leftPad(minutes, 2, '0')}:{leftPad(seconds, 2, '0')}{' ' + suffix()}</InstructionText>
                 </View>
             </LinearGradient>
         )
     }
-};
+}
 
 const styles = StyleSheet.create({
     linearGradient: {
@@ -71,5 +94,6 @@ const styles = StyleSheet.create({
 });
 
 export default connect(state => ({
-    timeToStopFasting: state.interval.timeToStopFasting,
+    fastingStart: state.interval.fastingStart,
+    selectedInterval: state.interval.selectedInterval,
 }), null)(Countdown);
