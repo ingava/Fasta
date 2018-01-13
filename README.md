@@ -4,11 +4,11 @@ will be able to choose a fasting regime and get a notification when they should 
 
 # Basic flow
 
-![flow](/assets/Fasta.png)
+![flow](https://github.com/ingava/fasta/src/assets/Fasta.png)
 
 # Installation
 
 Clone the repo. The project can be started in different ways. Please refer to the official documentation for
 <a href="https://facebook.github.io/react-native/docs/getting-started.html" target="_blank">dev environment setup</a>
 (see section "Building projects with Native Code).
-You can use a simulator such as Android Studio built-in one or genymotion. You can also set it up to run on your device. 
+You can use a simulator such as Android Studio built-in one or genymotion. You can also set it up to run on your device.
