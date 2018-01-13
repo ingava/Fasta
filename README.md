@@ -4,7 +4,7 @@ will be able to choose a fasting regime and get a notification when they should 
 
 # Basic flow
 
-![flow](https://github.com/ingava/fasta/src/assets/Fasta.png)
+![flow](src/assets/Fasta.png)
 
 # Installation
 
