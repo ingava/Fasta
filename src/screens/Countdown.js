@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import PushNotification from 'react-native-push-notification';
 import LinearGradient from 'react-native-linear-gradient';
 import backgroundGradient from '../constants/colors';
 import { View, StyleSheet } from 'react-native';
@@ -17,6 +18,7 @@ class Countdown extends Component {
         this.state = {
             timeToStopFasting,
             timeToStartFasting,
+            isFastingOver: false,
         };
     }
 
@@ -31,8 +33,20 @@ class Countdown extends Component {
     startCountDown = () => {
         const timeToStopFasting = this.timeToStopFasting();
         const timeToStartFasting = this.timeToStartFasting();
+        const shouldNotify = timeToStopFasting === 0;
+        const isFastingOver = timeToStopFasting <= 0;
 
-        this.setState({ timeToStopFasting, timeToStartFasting });
+        this.setState({ timeToStopFasting, timeToStartFasting, isFastingOver });
+
+        if (shouldNotify) {
+            PushNotification.localNotification({
+                vibrate: true,
+                vibration: 300,
+                color: 'red',
+                message: "Yay!! You can start eating!",
+                actions: '["No"]',
+            });
+        }
     };
 
     timeToStartFasting () {
