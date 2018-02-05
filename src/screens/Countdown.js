@@ -24,13 +24,6 @@ class Countdown extends Component {
 
     componentDidMount () {
         this.timer = setInterval(this.startCountDown, 1000);
-        PushNotification.localNotification({
-            vibrate: true,
-            vibration: 300,
-            largeIcon: 'ic_launcher',
-            smallIcon: 'ic_launcher',
-            message: 'Yay!! You can start eating!',
-        });
     }
 
     componentWillUnmount () {
